@@ -12,9 +12,9 @@ const args = process.argv.slice(3);
 
 const handleUserObject = (action, args) => {
   if (action === 'add') {
-    return createUserObject(args);  // Si es agregar usuario, se envían los argumentos
+    return createUserObject(args); 
   } else if (action === 'update') {
-    return createUpdateUserObject(args);  // Si es para actualizar
+    return createUpdateUserObject(args);  //para actualizar
   }
   return null;
 };
@@ -67,5 +67,5 @@ switch (action) {
 
   default:
     console.log('Acción no reconocida. Usa "list", "get", "add", "update", o "delete".');
-    
+
 }
