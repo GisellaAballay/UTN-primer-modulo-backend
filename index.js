@@ -5,8 +5,8 @@
 
 import { createUserObject, createUpdateUserObject } from './utils/createObjectUser';
 
-import { getUsers, addUsers, updatedUser, deleteUser } from '.models.js'; 
-
+import { getUsers, getUserById, addUser, updateUser, deleteUser } from '.models.js'; 
+ 
 const action = process.argv[2];  
 const args = process.argv.slice(3); 
 
