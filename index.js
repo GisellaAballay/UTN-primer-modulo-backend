@@ -33,4 +33,15 @@ switch (action) {
     console.log(`Usuario con ID ${id}`, user);
     break;
   } 
+
+  case 'add': {
+    const newUser = handleUserObject('add', args);
+    if (newUser) {
+      const addedUser = addUser(newUser);
+      console.log('Usuario añadido exitosamente', addedUser);
+    } else {
+      console.log('Error al crear el objeto del usuario.');
+    }
+    break;
+  }
 }
