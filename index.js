@@ -21,8 +21,16 @@ const handleUserObject = (action, args) => {
 
 
 switch (action) {
-  case 'list':
+  case 'list': {
     const users = getUsers();
     console.log('Lista de usuarios: ', users);
     break;
+  }
+  
+  case 'get': {
+    const id = args [0];
+    const user = getUserById(id);
+    console.log(`Usuario con ID ${id}`, user);
+    break;
+  } 
 }
