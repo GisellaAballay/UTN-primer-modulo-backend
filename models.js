@@ -5,13 +5,13 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { randomUUID } from "node:crypto";
 import dotenv from 'dotenv';
 import { handleError } from "./utils/handleError.js";
-import { get } from "node:http";
+
 
 
 dotenv.config();
 
 // 1° recuperar variables de entorno
-const PATH_FILE = process.env.PATH_FILE || './users.json';
+const PATH_FILE = process.env.PATH_FILE || './data/users.json';
 // 2° Declarar los metodos
 
 // Obtener los usuarios
