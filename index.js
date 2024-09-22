@@ -21,12 +21,8 @@ const handleUserObject = (action, args) => {
 
 
 switch (action) {
-  case 'createUser':
-    createUserObject(args);
+  case 'list':
+    const users = getUsers();
+    console.log('Lista de usuarios: ', users);
     break;
-  case 'updateUser':
-    createUpdateUserObject(args);
-    break;
-  default:
-    console.log('Acción no reconocido. Usa "createUser" o "updateUser".');
 }
