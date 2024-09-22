@@ -7,12 +7,8 @@ import { createUserObject, createUpdateUserObject } from './utils/createObjectUs
 
 import { getUsers, addUsers, updatedUser, deleteUser } from '.models.js'; 
 
-// 1º Recibir los argumentos pasados por la terminal
-
 const action = process.argv[2];  
 const args = process.argv.slice(3); 
-
-// 2º Funcion para manejar la creación o actualización de usuarios
 
 const handleUserObject = (action, args) => {
   if (action === 'add') {
@@ -23,7 +19,7 @@ const handleUserObject = (action, args) => {
   return null;
 };
 
-// 3º
+
 switch (action) {
   case 'createUser':
     createUserObject(args);
