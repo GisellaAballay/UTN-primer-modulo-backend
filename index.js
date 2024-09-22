@@ -64,4 +64,8 @@ switch (action) {
     console.log('Usuario eliminado:', deletedUser);
     break;
   }
+
+  default:
+    console.log('Acción no reconocida. Usa "list", "get", "add", "update", o "delete".');
+    
 }
