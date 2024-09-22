@@ -44,4 +44,17 @@ switch (action) {
     }
     break;
   }
+  
+  case 'update': {
+    
+    const id = args[0];
+    const updatedUserData = handleUserObject('update', args.slice(1));  
+    if (updatedUserData) {
+      const updatedUser = updateUser(id, updatedUserData);
+      console.log('Usuario actualizado exitosamente:', updatedUser);
+    } else {
+      console.log('Error al crear el objeto del usuario.');
+    }
+    break;
+  }
 }
