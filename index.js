@@ -57,4 +57,11 @@ switch (action) {
     }
     break;
   }
+
+  case 'delete': {
+    const id = args[0]; 
+    const deletedUser = deleteUser(id);
+    console.log('Usuario eliminado:', deletedUser);
+    break;
+  }
 }
