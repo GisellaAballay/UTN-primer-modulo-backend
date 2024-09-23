@@ -5,8 +5,7 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { randomUUID } from "node:crypto";
 import dotenv from 'dotenv';
 import { handleError } from "./utils/handleError.js";
-
-
+import crypto from "crypto";
 
 dotenv.config();
 
@@ -43,9 +42,6 @@ const getUsers = (urlFile = PATH_FILE) => {
 
 };
 
-// const response = getUsers();
-// console.log(response);
-
 // Obtener un usuario por el id
 const getUserById = (id) => {
   try {
@@ -65,10 +61,14 @@ const getUserById = (id) => {
 // valida que el nombre, apellido e email sea un string, que el email no se repita
 // hashea la contraseña antes de registrar al usuario
 
-// ¿puede ser async(userData)?
-const addUser = (userData) => {
+const addUser = async(userData) => {
   try {
     const { nombre, apellido, email, password } = userData;
+    const hash = crypto.createHash("sha256").update(password).digest("hex");
+    console.log(`
+      name: ${nombre}
+      password: ${hash}
+      `);
 
     if (typeof nombre !== "string" || typeof apellido !== "string") throw new Error("Nombre y apellido deben ser cadena de texto.");
   
@@ -81,18 +81,12 @@ const addUser = (userData) => {
     
     if (existsUser) return { error: "El usuario ya existe" }
     
-    // Hashear la contraseña 
-    // npm install brcypt
-    // import bcrypt from 'bcrypt';
-    // const hashedPassword = awair bcrypt.hash(password, 10);
-
     const newUser = {
       id: randomUUID(),
       nombre,
       apellido,
       email,
-      password, 
-      // password: hashedPassword, para guardar la contraseña
+      password,
       isLoggedId: false,
     };
 
@@ -111,8 +105,7 @@ const addUser = (userData) => {
 // si se modifica la pass debería ser nuevamente hasheada
 // si se modifica el email, validar que este no exista
 
-// Actualizar un usuario: const updateUser = async (id, userData) => ...
-const updateUser = (id, userData) => {
+const updateUser = async(id, userData) => {
   try{
     const { nombre, apellido, email, password } = userData;
 
@@ -124,8 +117,7 @@ const updateUser = (id, userData) => {
     if (nombre) existsUser.nombre = nombre;
     if (apellido) existsUser.apellido = apellido;
     if (email) existsUser.email = email;
-    if (password) existsUser.password = password;
-    // if (password) existsUser.password = await bcrypt.hash(password, 10);
+    if (password) existsUser.password = await password;
 
     writeFileSync(PATH_FILE, JSON.stringify(users));
 

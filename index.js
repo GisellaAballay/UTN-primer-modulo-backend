@@ -3,8 +3,8 @@
 // 3º evaluar que accion quiere realizar el usuario (list, search/get, add, update, delete)
 // 4º devolver el output al cliente final
 
-import { createUserObject, createUpdateUserObject } from './utils/createObjectUser.js';
 
+import { createUserObject, createUpdateUserObject } from './utils/createObjectUser.js';
 import { getUsers, getUserById, addUser, updateUser, deleteUser } from './models.js'; 
 
 const action = process.argv[2];  
@@ -69,3 +69,4 @@ switch (action) {
     console.log('Acción no reconocida. Usa "list", "get", "add", "update", o "delete".');
 
 }
+
