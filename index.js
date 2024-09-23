@@ -3,7 +3,6 @@
 // 3º evaluar que accion quiere realizar el usuario (list, search/get, add, update, delete)
 // 4º devolver el output al cliente final
 
-
 import { createUserObject, createUpdateUserObject } from './utils/createObjectUser.js';
 import { getUsers, getUserById, addUser, updateUser, deleteUser } from './models.js'; 
 
@@ -40,7 +39,7 @@ switch (action) {
       const addedUser = addUser(newUser);
       console.log('Usuario añadido exitosamente', addedUser);
     } else {
-      console.log('Error al crear el objeto del usuario.');
+      console.log('Error al crear el usuario.');
     }
     break;
   }
