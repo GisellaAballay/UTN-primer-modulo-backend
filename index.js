@@ -13,7 +13,7 @@ const handleUserObject = (action, args) => {
   if (action === 'add') {
     return createUserObject(args); 
   } else if (action === 'update') {
-    return createUpdateUserObject(args);  //para actualizar
+    return createUpdateUserObject(args);
   }
   return null;
 };

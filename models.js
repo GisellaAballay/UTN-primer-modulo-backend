@@ -1,11 +1,11 @@
 // Averiguar que importar de NODE para realizar el hash del pass
 // Averiguar como "activar" la lectura de las variables de entorno del archivo .env (dotenv)
 
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import crypto, { Hash } from "crypto";
 import { randomUUID } from "node:crypto";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import dotenv from 'dotenv';
 import { handleError } from "./utils/handleError.js";
-import crypto from "crypto";
 
 dotenv.config();
 
@@ -86,7 +86,7 @@ const addUser = async(userData) => {
       nombre,
       apellido,
       email,
-      password,
+      password: hash,
       isLoggedId: false,
     };
 
