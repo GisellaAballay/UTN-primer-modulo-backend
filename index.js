@@ -18,7 +18,6 @@ const handleUserObject = (action, args) => {
   return null;
 };
 
-
 switch (action) {
   case 'list': {
     const users = getUsers();
@@ -45,7 +44,6 @@ switch (action) {
   }
   
   case 'update': {
-    
     const id = args[0];
     const updatedUserData = handleUserObject('update', args.slice(1));  
     if (updatedUserData) {
@@ -66,6 +64,5 @@ switch (action) {
 
   default:
     console.log('Acción no reconocida. Usa "list", "get", "add", "update", o "delete".');
-
 }
 

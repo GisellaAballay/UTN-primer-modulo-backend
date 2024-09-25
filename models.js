@@ -31,15 +31,9 @@ const getUsers = (urlFile = PATH_FILE) => {
     return users;
   
   } catch (error) {
-     const objError = handleError()
-     return objError;
+     handleError(error, './error');
+     return { error: error.massage };
   }
-
-  // } catch (error) {
-    // handleError(error, './error.log');
-    // return { error: error.message };
-  // }
-
 };
 
 // Obtener un usuario por el id
@@ -50,10 +44,10 @@ const getUserById = (id) => {
     if (!user) throw new Error("Usuario no encontrado");
     return user;
 
-  } catch (error) { 
-    const objError = handleError()
-    return objError;
-  }
+  } catch (error) {
+    handleError(error, './error');
+    return { error: error.massage };
+ }
 };
 
 // addUser recibe un objeto con toda la data para el nuevo usuario
@@ -96,9 +90,9 @@ const addUser = async(userData) => {
     return newUser;
 
   } catch (error) {
-    const objError = handleError()
-    return objError;
-  }
+    handleError(error, './error');
+    return { error: error.massage };
+ }
 };  
 
 // todos los datos del usuario seleccionado se podrían modificar menos el ID
@@ -123,10 +117,10 @@ const updateUser = async(id, userData) => {
 
     return existsUser;
 
-  } catch (error) { 
-    const objError = handleError()
-    return objError;
-  }
+  } catch (error) {
+    handleError(error, './error');
+    return { error: error.massage };
+ }
 };
 
 const deleteUser = (id) => {
@@ -143,9 +137,9 @@ const deleteUser = (id) => {
     return existsUser;
 
   } catch (error) {
-    const objError = handleError()
-    return objError; 
-  }
+    handleError(error, './error');
+    return { error: error.massage };
+ }
 };
 
 export { getUsers, getUserById, addUser, updateUser, deleteUser };
