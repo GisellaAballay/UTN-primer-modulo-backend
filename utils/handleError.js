@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 
 const handleError = (error, path) => {
-  const dbError = [];
+  let dbError = [];
 
   try {
     if(existsSync(path)) {
