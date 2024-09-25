@@ -6,19 +6,19 @@ Este sistema es una aplicación de línea de comandos desarrollada en Node.js qu
 
 <h3>Funcionalidades</h3>
 
-Listar los usuarios: 
+<h5>Listar los usuarios(list):</h5><br>
 Muestra una lista de todos los usuarios registrados en el sistema. 
 
-Obtener un usuario por ID:
+<h5>Obtener un usuario por ID(get):</h5><br>
 Muestra la información de un usuario específico mediante su ID.
 
-Agregar un nuevo usuario: 
+<h5>Agregar un nuevo usuario(add): </h5><br>
 Permite agregar un nuevo usuario al sistema proporcionando sus datos.
 
-Actualizar un usuario existente:
+<h5>Actualizar un usuario existente(update):</h5><br>
 Actualiza la información de un usuario existente mediante su ID.
 
-Eliminar un usuario:
+<h5>Eliminar un usuario(delete):</h5><br>
 Elimina un usuario del sistema mediante su ID.
 
 <h3>Notas</h3>
